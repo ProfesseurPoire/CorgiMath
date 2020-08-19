@@ -11,8 +11,6 @@ else()
     set(arch_suffix "64")
 endif()
 
-# I think this is needed for x64 architecture
-set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS TRUE)
 
 add_library(${PROJECT_NAME} STATIC "")
 

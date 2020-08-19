@@ -13,6 +13,9 @@ target_sources(${PROJECT_NAME}
 	UTVector4f.cpp
 	UTCollisions.cpp)
 
+# Needed for x64 architecture so it looks inside a lib64 repository
+set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS TRUE)
+
 find_package(CorgiTest)
 
 target_link_libraries(${PROJECT_NAME}

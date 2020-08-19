@@ -1,7 +1,7 @@
 @setlocal enableextensions
 @cd /d "%~dp0"
 
-rmdir /s /q "C:\Program Files\corgi-math"
+rmdir /s /q "C:\Program Files\CorgiMath"
 
 for %%i in (x86 x64) do (
 
@@ -15,9 +15,9 @@ for %%i in (x86 x64) do (
         cd build\build%%i\%%j
 
         if %%i == x86 (
-            cmake -DCMAKE_BUILD_TYPE=%%j -DCMAKE_INSTALL_PREFIX="C:\\Program Files\\corgi-math" -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -G "Visual Studio 16 2019" -A Win32 ..\..\..
+            cmake -DCMAKE_BUILD_TYPE=%%j -DCMAKE_INSTALL_PREFIX="C:\\Program Files\\CorgiMath" -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -G "Visual Studio 16 2019" -A Win32 ..\..\..
         ) else (
-            cmake -DCMAKE_BUILD_TYPE=%%j -DCMAKE_INSTALL_PREFIX="C:\\Program Files\\corgi-math" -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -G "Visual Studio 16 2019" -A x64 ..\..\..
+            cmake -DCMAKE_BUILD_TYPE=%%j -DCMAKE_INSTALL_PREFIX="C:\\Program Files\\CorgiMath" -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -G "Visual Studio 16 2019" -A x64 ..\..\..
         )
         
         msbuild INSTALL.vcxproj /property:Configuration=%%j    
