@@ -49,7 +49,18 @@ before_install :
     fi;
   - eval "${MATRIX_EVAL}"
 
-before_script:  
+before_script: 
+  - git clone https://github.com/ProfesseurPoire/CorgiTest
+  - cd CorgiTest
+  - mkdir build
+  - cd build
+  - if [ "$TRAVIS_DIST" = "bionic" ]; then
+      /usr/bin/cmake .. -DCMAKE_BUILD_TYPE=Debug;
+    else
+      cmake .. -DCMAKE_BUILD_TYPE=Debug;
+    fi;
+  - sudo make install
+  - cd ../.. 
   - mkdir build
   - mkdir b
   - mkdir b/Debug
